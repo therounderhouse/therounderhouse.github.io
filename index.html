@@ -8,24 +8,23 @@
 
     <title>ROUNDERPAGE</title>
 
-    <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <!-- Custom styles for this template -->
 	<style>
-	@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@1,700&family=Staatliches&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,500;0,900;1,500;1,900&display=swap');
+
+    /* BASICS */
+
 	:root {
 		--rounder: 237, 28, 36;
-		--maroon: 140, 43, 51;
+		--maroon: 245, 0, 0;
 		--gold: 194, 139, 36;
+        --dark: 13, 13, 13;
 	}
 	body {
-		color :#fff;
-		background-color: #212529;
+		color: rgb(var(--maroon));
+		background-color: rgb(var(--dark));
+        background-image: url(assets/topotrans.png);
+        scrollbar-color: rgb(var(--maroon)) rgb(var(--dark));
 	}
 	a {
 		color: rgb(var(--rounder));
@@ -33,205 +32,202 @@
 	a:hover {
 		color: rgb(var(--maroon));
 	}
-	.navbar-brand {
-		font-family: 'Roboto Mono', monospace;
-		font-size: 3em;
-		text-shadow: 2px 3px 5px black;
-		margin-right: 2rem;
-		padding: none;
-		}
-	.nav-item, .navbar-text {
-		color: white!important;
-		background: #403636db;
-		padding: 5px;
-		border-radius: 3px;
-		margin: 3px;
-		transition: all ease-in-out;
-		}
-	#content {
-		box-shadow: 0px 0px 20px rgba(0,0,0,.60);
-		display: block;
-		max-width: 1300px;
-		padding: 1rem;
-		margin: 9rem auto;
-		border-radius: 3px;
-	}
-	.modal-content {
-		background: #353535;
-	}
-	#page-title {
-		font-family: 'Roboto Mono', monospace;
-		text-align: center;
-	}
-	.contrast {
-		background: #2020209e;
-		padding: 5px;
-		border-radius: 3px;
-	}
-	.writingbox {
-		display: grid;
-		grid-template-columns: repeat(1fr, 2);
-		grid-template-rows: auto;
-		grid-template-areas: 'scp blurb';
-		grid-gap: 0.5rem;
-		}
-	.scp {
-		grid-area: scp;
-		max-width: 350;
-		justify-self: center;
-	}
-	.blurb {
-		grid-area: blurb;
-	}
-	.redside {
-		border-left: 5px solid rgb(var(--maroon));
-	}
-	.goldside {
-		border-left: 5px solid rgb(var(--gold));
-	}
-	hr {
-	border-top: 1px solid rgba(242, 1, 1, 0.33);
-	}
-	
-.masonry { 
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	align-content: space-around;
-	flex-wrap: wrap;
 
-}
-.item {
-	display: block;
-	max-width: 20%;
-	margin: 1rem;
-}
-.item img{max-width:100%;}
+    /* LAYOUT */
 
-	@media (min-width: 992px) {
-		.navbar-text {
-			font-size: 1.25em;
-			animation: rock 3s infinite alternate ease-in-out;
-		}
-		.nav-item:hover {
-			animation: emph 1s 1 normal ease-in-out forwards;
-		}
-	}
-	@media (max-width: 992px) {
-		.writingbox {
+    .title {
+        font-size: 16rem;
+        font-family: 'Barlow', sans-serif;
+        font-weight:900;
+        position: relative;
+        top: -7rem;
+        left: -4rem;
+    }
+    .content {
+        display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+		grid-template-areas: 'quotes pic writing'
+                            'quotes pic art'
+                            'quotes pic other'
+                            'quotes pic abt';
+		grid-gap: 2rem;
+        position: relative;
+        top: -7rem;
+        height: 40rem;
+    }
+    .quotes {
+        /* border: 1px solid green; */
+        grid-area: quotes;
+    }
+    .writing {
+        /* border: 1px solid blue; */
+        grid-area: writing;
+    }
+    .art {
+        /* border: 1px solid yellow; */
+        grid-area: art;
+    }
+    .other {
+        /* border: 1px solid orange; */
+        grid-area: other;
+    }
+    .pic {
+        /* border: 1px solid red; */
+        grid-area: pic;
+    }
+    .abt {
+        /* border: 1px solid purple; */
+        grid-area: abt;
+    }
+
+    /* DIVS N BOXES N SUCH */
+
+    .quotes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        align-content: center;
+    }
+    .praise {
+        /* background: blue; */
+        font-size: 2rem;
+        font-family: 'Barlow', sans-serif;
+        font-weight:500;
+        font-style: italic;
+        margin: 0.5rem;
+    }
+    .rndrhs {
+        padding: 0rem 6rem;
+        animation: spinny 2s;
+    }
+
+    .showbox {
+        display: block;
+        text-decoration: none;
+        background-color: rgb(var(--maroon));
+        color: rgb(255, 221, 221);
+        transition: all 150ms ease-in-out;
+        -webkit-text-stroke: 2px rgb(var(--dark));
+        background-blend-mode: multiply;
+    }
+
+    .showbox .head {
+        font-size: 3rem;
+        font-family: 'Barlow', sans-serif;
+        font-weight:900;
+        position:relative;
+        top: 0;
+        left:0.5rem;
+    }
+
+    .showbox:hover {
+        color: rgb(var(--maroon));
+        background-color: transparent;
+    }
+
+    .pic {
+        background-image: url('assets/angryhouse.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        animation: spinny 2s;
+        min-height: 31rem;
+    }
+    .writing {
+        background-image: url('https://scp-wiki.wdfiles.com/local--files/rounderhouse-gold-proposal/amoniram.png');
+        background-position: center;
+        background-size: 200%;
+    }
+
+    .art {
+        background-image: url('https://cdn.discordapp.com/attachments/524295654638354443/1094804111221862471/APOLLOAIR1.png');
+        background-position: center 30%;
+        background-size: 110%;
+    }
+
+    .other {
+        background-image: url('https://media.discordapp.net/attachments/524295654638354443/1094804605625434112/patchcollection1.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .abt {
+        background-image: url('https://therounderhouse.github.io/assets/headshot.jpg');
+        background-position: center 45%;
+    }
+
+    @keyframes spinny {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+
+    @media (max-width: 1290px) {
+		.content {
 			grid-template-columns: 1fr;
 			grid-template-rows: auto;
-			grid-template-areas: 'scp'
-								 'blurb';
+			grid-template-areas: 'pic'
+								 'quotes'
+                                 'writing'
+                                 'art'
+                                 'other'
+                                 'abt';
 		}
-		.navbar-brand {
- 			font-size: 2em;
-    			margin-right: 0;
-		}
-	}
-	
-	@keyframes rock {
-	  from {transform: rotate(15deg)}
-	  to {transform: rotate(-15deg)}
-	}
-	
-	@keyframes emph {
-	  from {transform: rotate(0deg); background: #403636db;}
-	  to {transform: rotate(7deg); background: #403636;}
 	}
 	</style>
   </head>
 
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url(../assets/rounderception.png); filter: saturate(0.75); border-bottom: 3px solid black; box-shadow: 0px 0px 30px rgba(125, 125, 125, 0.46);">
-      <a class="navbar-brand" href="/"><img src="../assets/logo.png" width="75">ROUNDERHOUSE</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/writing">Words!</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/multimedia">Pictures!</a>
-          </li>
-		  <li class="nav-item active">
-            <a class="nav-link" href="/other">Other stuff!</a>
-          </li>
-		  <li class="nav-item active">
-            <a class="nav-link" href="/bio">About Me!</a>
-          </li>
-        </ul>
-		  <span class="navbar-text">
-			Your favorite yurt!
-		</span>
-      </div>
-    </nav>
-
-    <main role="main" class="container-fluid" id="content">
-
-      <div class="starter-template">
-        <h1 id="page-title">ROUNDERPAGE</h1>
-		<hr>
-      </div>
-
-		<section>
-		<p>
-Hi, I'm Rounderhouse! I'm an amateur writer, coder, scifi enjoyer, and horror and New Weird enthusiast. If you've ever browsed the SCP Wiki, chances are you've seen some of my work. I also post horror photoshops to my Twitter semi-regularly. This is mostly a place to let people interested in my projects see everything I'm working on and to follow if they'd like. Enjoy!
-</p>
-<div style="text-align: right;">
-<a href="https://twitter.com/rounderhouse?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @rounderhouse</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> & <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi!', '#b83030', 'F1F64ZZ56');kofiwidget2.draw();</script> 
-</div>
-
-<hr>
-<div class="card-deck">
-  <div class="card text-white mb-3 redside" style="background-color: #363b40;">
-    <img src="../assets/logo.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title" style="font-family: 'Roboto Mono', monospace;">Writing Work</h5>
-      <p class="card-text">A list of my original fiction work, and where you can find it. And maybe some exclusive stories as well...</p>
+    <div class="title">
+        ROUNDERHOUSE
     </div>
-    <div class="card-footer">
-     	<a href="/writing" class="btn btn-danger">Go</a>
-    </div>
-  </div>
-  <div class="card text-white mb-3 redside" style="background-color: #363b40;">
-      <div class="card-body">
-      <h5 class="card-title" style="font-family: 'Roboto Mono', monospace;">Image Work</h5>
-      <p class="card-text">A collection of photomanipulation or other graphic work done by yours truly.</p>
-    </div>
-    <img src="../assets/hellkite.png" class="card-img-top" alt="...">
-	<div class="card-footer">
-		<a href="/multimedia" class="btn btn-danger">Go.</a>
-    </div>
-  </div>
-  <div class="card text-white mb-3 redside" style="background-color: #363b40;">
-    <img src="../assets/headshot.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title" style="font-family: 'Roboto Mono', monospace;">About Me</h5>
-      <p class="card-text">In case you're curious about who I am, for some absurd reason.</p>
-    </div>
-    <div class="card-footer">
-    	<a href="/bio" class="btn btn-danger">GO!</a>
-    </div>
-  </div>
-</div>
-		</section>
-    </main><!-- /.container -->
+    <div class="content"> 
+        <div class="quotes">
+            <span class="praise">"hack fraud"</span>
+            <span class="praise">"arrogant prick"</span>
+            <span class="praise">"unfit to hold power"</span>
+            <span class="praise">"ruining SCP"</span>
+            <span class="praise">"disingenuous writer"</span>
+            <span class="praise">"megalomaniacal"</span>
+            <span class="praise">"rabble-rouser"</span>
+            <span class="praise">"deceptive"</span>
+            <span class="praise">"unpredictable"</span>
+            <span class="praise">"killing the wiki"</span>
+            <span class="praise">"derivative artist"</span> 
+            <span class="praise">"lazy"</span>
+            <span class="praise">"obscenely overrated"</span>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script>
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox();
-            });
-	</script>
+        </div>
+
+        <div class="pic" data-tilt>
+            <div style="text-align: center;">            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi!', '#b83030', 'F1F64ZZ56');kofiwidget2.draw();</script> 
+            </div>
+        </div>
+
+        <a class="showbox writing" href="#">
+            <span class="head">WRITING</span>
+        </a>
+
+        <a class="showbox art" href="#">
+            <span class="head">ART</span>
+        </a>
+
+        <a class="showbox other" href="#">
+            <span class="head">SHOP</span>
+        </a>
+
+        <a class="showbox abt" href="#">
+            <span class="head">ABOUT ME</span>
+        </a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        const testim = document.querySelectorAll('.praise');
+        const count = testim.length;
+
+        for (let i = 0; i < count; i++) {
+            let x = Math.floor(Math.random() * (3 - 0.85 + 1) + 0.85);
+            testim[i].style.fontSize = x + "rem";
+        }
+    </script>
 </body>
