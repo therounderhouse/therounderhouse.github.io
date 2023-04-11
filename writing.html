@@ -6,26 +6,39 @@
     <meta name="theme-color" content="#ed1c24">
     <link rel="icon" href="../assets/logo.png">
 
-    <title>ROUNDERWORDS</title>
+    <title>ROUNDERPAGE</title>
 
-    <!-- Bootstrap core CSS -->
+	    <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  
     <!-- Custom styles for this template -->
 	<style>
-	@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@1,700&family=Staatliches&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,500;0,900;1,500;1,900&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;800&display=swap');
+
+    /* BASICS */
+
 	:root {
 		--rounder: 237, 28, 36;
-		--maroon: 140, 43, 51;
+		--maroon: 245, 0, 0;
 		--gold: 194, 139, 36;
+        --dark: 13, 13, 13;
 	}
 	body {
-		color :#fff;
-		background-color: #212529;
+		font-family: 'Dosis', sans-serif;
+		color: rgb(var(--maroon));
+		background-color: rgb(var(--dark));
+        background-image: url(assets/topotrans.png);
+        scrollbar-color: rgb(var(--maroon)) rgb(var(--dark));
+	}
+	.textbox h1, h2, h3, h4 {
+		font-family: 'Barlow', sans-serif;
+        font-weight:500;
 	}
 	a {
 		color: rgb(var(--rounder));
@@ -33,36 +46,43 @@
 	a:hover {
 		color: rgb(var(--maroon));
 	}
-	.navbar-brand {
-		font-family: 'Roboto Mono', monospace;
-		font-size: 3em;
-		text-shadow: 2px 3px 5px black;
-		margin-right: 2rem;
-		padding: none;
-		}
-	.nav-item, .navbar-text {
-		color: white!important;
-		background: #403636db;
-		padding: 5px;
-		border-radius: 3px;
-		margin: 3px;
-		transition: all ease-in-out;
-		}
-	#content {
+
+    /* LAYOUT */
+
+    .title {
+        font-size: 16rem;
+        font-family: 'Barlow', sans-serif;
+        font-weight:900;
+        position: relative;
+        top: -7rem;
+        left: -4rem;
+		text-decoration: underline;
+    }
+
+	.textbox {
 		box-shadow: 0px 0px 20px rgba(0,0,0,.60);
 		display: block;
-		max-width: 1300px;
+		max-width: 70%;
 		padding: 1rem;
-		margin: 9rem auto;
+		background: #09060691;
+		margin: auto;
+		margin-top: -7rem;
 		border-radius: 3px;
+		font-size: 125%;
 	}
+	hr {
+		border-color: #8c0000;
+	}
+
+    @keyframes spinny {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+
 	.modal-content {
 		background: #353535;
 	}
-	#page-title {
-		font-family: 'Roboto Mono', monospace;
-		text-align: center;
-	}
+
 	.contrast {
 		background: #2020209e;
 		padding: 5px;
@@ -107,28 +127,6 @@
 	margin: 1rem;
 }
 .item img{max-width:100%;}
-
-	@media (min-width: 992px) {
-		.navbar-text {
-			font-size: 1.25em;
-			animation: rock 3s infinite alternate ease-in-out;
-		}
-		.nav-item:hover {
-			animation: emph 1s 1 normal ease-in-out forwards;
-		}
-	}
-	@media (max-width: 992px) {
-		.writingbox {
-			grid-template-columns: 1fr;
-			grid-template-rows: auto;
-			grid-template-areas: 'scp'
-								 'blurb';
-		}
-		.navbar-brand {
- 			font-size: 2em;
-    			margin-right: 0;
-		}
-	}
 	
 	@keyframes rock {
 	  from {transform: rotate(15deg)}
@@ -142,39 +140,15 @@
 	</style>
   </head>
 
-  <body>
+</style>
+</head>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url(../assets/rounderception.png); filter: saturate(0.75); border-bottom: 3px solid black; box-shadow: 0px 0px 30px rgba(125, 125, 125, 0.46);">
-      <a class="navbar-brand" href="/"><img src="../assets/logo.png" width="75">ROUNDERHOUSE</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body>
+  <div class="title">
+	  <a href="index">ROUNDERHOUSE</a>
+  </div>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/writing">Words!</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/multimedia">Pictures!</a>
-          </li>
-		  <li class="nav-item active">
-            <a class="nav-link" href="/other">Other stuff!</a>
-          </li>
-		  <li class="nav-item active">
-            <a class="nav-link" href="/bio">About Me!</a>
-          </li>
-        </ul>
-		  <span class="navbar-text">
-			Your favorite yurt!
-		</span>
-      </div>
-    </nav>
-
-    <main role="main" class="container-fluid" id="content">
+    <main role="main" class="textbox">
 
       <div class="starter-template">
         <h1 id="page-title">ROUNDERWORDS</h1>
@@ -188,7 +162,7 @@
   <div class="card bg-dark text-white redside">
   <img src="../assets/scp.jpg" class="card-img" style="height: 18rem; object-fit: cover;" alt="...">
 		<div class="card-img-overlay">
-			<h3 class="card-title"><span class="contrast">The SCP Foundation<span class="badge badge-danger" style="margin-left: 6px">#18 Author</span></span></h3>
+			<h3 class="card-title"><span class="contrast">The SCP Foundation<span class="badge badge-danger" style="margin-left: 6px">#15 Author</span></span></h3>
 			<p class="card-text" style="line-height: 1.95;"><span class="contrast">Weird stories framed as classified documents, detailing a world of reality-breaking anomalies and the secret Foundation that contains them. Inspiration for Control.</span></p>
 			<a href="http://www.scpwiki.com/rounderhouse-s-author-page" class="btn btn-danger">Full list of my SCP works!</a>
 		</div>
@@ -207,7 +181,7 @@
 <p> I have over 100 stories in various forms across those two sites, so here's a short group of stories I guess I'd call my highlights, to give you a sense for the kind of nonsense I write. </p>
 <hr>
 <div class="card-deck">
-	<div class="card text-white mb-3 redside" style="background-color: #363b40;">
+	<div class="card text-white mb-3 redside" style="background-color: #171717;">
 		<div class="card-header">SCP-001: ROUNDERHOUSE's Gold Proposal <span class="badge badge-danger">SCP Wiki</span></div>
 		<div class="card-body">
 			<h5 class="card-title">» AMONI-RAM</h5>
@@ -217,27 +191,27 @@
 			<a href="http://scp-wiki.wikidot.com/rounderhouse-gold-proposal" class="btn btn-danger">Link</a>
 		</div>
 	</div>
-	<div class="card text-white mb-3 redside" style="background-color: #363b40;">
-		<div class="card-header">SCP-5140 <span class="badge badge-danger">SCP Wiki</span></div>
+	<div class="card text-white mb-3 redside" style="background-color: #171717;">
+		<div class="card-header">SCP-001: ROUNDERHOUSE's Jade Proposal <span class="badge badge-danger">SCP Wiki</span></div>
 		<div class="card-body">
-			<h5 class="card-title">» EVEREST</h5>
-			<p class="card-text">Most who die while climbing Everest remain on the mountain. How many corpses are up there, really?</p>
+			<h5 class="card-title">» MAMJUL & KORAR</h5>
+			<p class="card-text">The epic sequel to the GOLD Proposal, following the Foundation discovering the Twin Cities of the Daeva.</p>
 		</div>
 		<div class="card-footer">
-			<a href="http://scp-wiki.wikidot.com/scp-5140" class="btn btn-danger">Link</a>
+			<a href="http://scp-wiki.wikidot.com/rounderhouse-jade-proposal" class="btn btn-danger">Link</a>
 		</div>
 	</div>
-	<div class="card text-white mb-3 redside" style="background-color: #363b40;">
+	<div class="card text-white mb-3 redside" style="background-color: #171717;">
 		<div class="card-header">SCP-001: ROUNDERHOUSE's Proposal <span class="badge badge-danger">SCP Wiki</span></div>
 		<div class="card-body">
-			<h5 class="card-title">» Memento Mori</h5>
+			<h5 class="card-title">» MEMENTO MORI</h5>
 			<p class="card-text">A manor in Virginia, thirteen graves, twelve filled. A snapshot into the O5 Council of the close future.</p>
 		</div>
 		<div class="card-footer">
 			<a href="http://www.scpwiki.com/rounderhouse-proposal" class="btn btn-danger">Link</a>
 		</div>
 	</div>
-	<div class="card text-white mb-3 goldside" style="background-color: #1b5528;">
+	<div class="card text-white mb-3 goldside" style="background-color: #171717;">
 		<div class="card-header">#PlanasthaiIsOverParty <span class="badge badge-warning">Wanderer's Library</span></div>
 		<div class="card-body">
 			<h5 class="card-title">» #PlanasthaiIsOverParty</h5>
@@ -249,17 +223,17 @@
 	</div>
 </div>
 <div class="card-deck">
-	<div class="card text-white mb-3 redside" style="background-color: #363b40;">
-		<div class="card-header">EXTDOC-5495 <span class="badge badge-danger">SCP Wiki</span></div>
+	<div class="card text-white mb-3 redside" style="background-color: #171717;">
+		<div class="card-header">SCP-5140 <span class="badge badge-danger">SCP Wiki</span></div>
 		<div class="card-body">
-			<h5 class="card-title">» THE GHAZNI INCIDENT</h5>
-			<p class="card-text">The Global Occult Coalition investigates a mysterious event in Afghanistan, with the Foundation being suspiciously helpful.</p>
+			<h5 class="card-title">» EVEREST</h5>
+			<p class="card-text">Most who die while climbing Everest remain on the mountain. How many corpses are up there, really?</p>
 		</div>
 		<div class="card-footer">
-			<a href="http://scp-wiki.wikidot.com/scp-5495" class="btn btn-danger">Link</a>
+			<a href="http://scp-wiki.wikidot.com/scp-5140" class="btn btn-danger">Link</a>
 		</div>
 	</div>
-	<div class="card text-white mb-3 goldside" style="background-color: #1b5528;">
+	<div class="card text-white mb-3 goldside" style="background-color: #171717;">
 		<div class="card-header">Irish Coffee <span class="badge badge-warning">Wanderer's Library</span></div>
 		<div class="card-body">
 			<h5 class="card-title">» Irish Coffee</h5>
@@ -269,7 +243,7 @@
 			<a href="http://wanderers-library.wikidot.com/irish-coffee" class="btn btn-warning">Link</a>
 		</div>
 	</div>
-	<div class="card text-white mb-3 redside" style="background-color: #363b40;">
+	<div class="card text-white mb-3 redside" style="background-color: #171717;">
 		<div class="card-header">SCP-5549 <span class="badge badge-danger">SCP Wiki</span></div>
 		<div class="card-body">
 			<h5 class="card-title">» SECOND SIN</h5>
@@ -279,7 +253,7 @@
 			<a href="http://scp-wiki.wikidot.com/scp-5549" class="btn btn-danger">Link</a>
 		</div>
 	</div>
-	<div class="card text-white mb-3 goldside" style="background-color: #1b5528;">
+	<div class="card text-white mb-3 goldside" style="background-color: #171717;">
 		<div class="card-header">On The Common Vampyre <span class="badge badge-warning">Wanderer's Library</span></div>
 		<div class="card-body">
 			<h5 class="card-title">» On The Common Vampyre</h5>
